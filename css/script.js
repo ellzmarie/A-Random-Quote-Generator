@@ -80,7 +80,8 @@ function getRandomQuote() {
   // console.log(randomQuote) to test
   return randomQuote;
 }
-getRandomQuote()
+console.log(getRandomQuote())
+getRandomQuote(quotes);
 
 /***
  * `printQuote` function
@@ -111,10 +112,10 @@ function printQuote() {
   html += '<p class=source>' + source + '<span class="citation">' + citation + '<span class="year">' + year + '</p>';
 
   //execute
-  print(html);
+  return html;
 }
 
-printQuote() //executes function and displays objects 
+console.log(printQuote()); //executes function and displays objects 
 
 
 /***
