@@ -28,7 +28,6 @@ var quotes = [
   {
     quote: 'I think a hero is any person really intent on making this a better place for all people.',
     source: 'Maya Angelou',
-    citation: 'Pocket Maya Angelou Wisdom',
     year: 2019
   },
 
@@ -36,7 +35,6 @@ var quotes = [
     quote: 'If you are always trying to be normal, you will never know how amazing you can be.',
     source: 'Maya Angelou',
     citation: 'Pocket Maya Angelou Wisdom',
-    year: 2019
   },
 
   {
@@ -74,30 +72,49 @@ var quotes = [
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote(array) {
-  var quoteIndex = Math.floor(Math.random() * (quotes.length));
-  for (var i = 0; i < array.length; i++) {
-    var randomQuote = array[quoteIndex];
-  }
+function getRandomQuote() {
+  let randomNumber = Math.floor(Math.random() * (quotes.length));
+  
+  // quote.innerHTML = '<span>"</span>' + quotes[ranNumber].quote+''+'<span>"</span>';
+  let randomQuote = quotes[randomNumber].quote
+  // console.log(randomQuote) to test
   return randomQuote;
 }
+getRandomQuote()
 
 /***
  * `printQuote` function
 ***/
 function printQuote() {
-  var message = "";     // Initializing the message variable with empty string
-  var result = getRandomQuote(quotes);
-  message = "<p class='quote'>" + result.quote + "</p>";
-  message += "<p class='source'>" + result.source;
-  message += "<span class='citation'>" + result.citation + "</span>";
-  message += "<span class='year'>" + result.year + "</span>"
-  message += "</p>";
+  // set a value to variables
+  let html = '';
+  let randomQuote = getRandomQuote();
+  let quote = quotes[randomQuote].quote;
+  let source = quotes[randomQuote].source;
+  let citation = quotes[randomQuote].citation;
+  let year = quotes[randomQuote].year;
 
-  document.getElementById('quote-box').innerHTML = message;
+  // view quote in the html file provided
+  html += '<p class = "quote">' + quote + '</p>';
+
+  // view quote, source, and year if citation is not available
+  if (citation === '') {
+    html += '<p class=source>' + source + '<span class="year">' + year + '</p>';
+  };
+
+  // view quote, source, and citation is year is not available
+  if (year === ''){
+    html += '<p class=source>' + source + '<span class="citation">' + citation + '</p>';
+  };
+
+  // view quote, source, citation and year when everything is available
+  html += '<p class=source>' + source + '<span class="citation">' + citation + '<span class="year">' + year + '</p>';
+
+  //execute
+  print(html);
 }
 
-printQuote(); 
+printQuote(); //executes function and displays objects 
 
 
 /***
