@@ -114,7 +114,7 @@ function printQuote() {
   print(html);
 }
 
-printQuote(); //executes function and displays objects 
+printQuote() //executes function and displays objects 
 
 
 /***
