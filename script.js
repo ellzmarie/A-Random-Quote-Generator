@@ -70,26 +70,23 @@ var quotes = [
 
 /***
  * `getRandomQuote` function
+ * This function should return a quote from the array.
 ***/
 
 function getRandomQuote() {
-  let randomNumber = Math.floor(Math.random() * (quotes.length));
-  
-  // quote.innerHTML = '<span>"</span>' + quotes[ranNumber].quote+''+'<span>"</span>';
-  let randomQuote = quotes[randomNumber].quote
-  // console.log(randomQuote) to test
-  return randomQuote;
+  const randomNumber = Math.floor(Math.random() * (quotes.length));
+  return quotes[randomNumber];
 }
-console.log(getRandomQuote())
-getRandomQuote(quotes);
+
 
 /***
  * `printQuote` function
+ * This function should display a new quote each time the user clicks the button 
 ***/
 function printQuote() {
-  // set a value to variables
+  const randomQuote = getRandomQuote();
+
   let html = '';
-  let randomQuote = getRandomQuote();
   let quote = quotes[randomQuote].quote;
   let source = quotes[randomQuote].source;
   let citation = quotes[randomQuote].citation;
