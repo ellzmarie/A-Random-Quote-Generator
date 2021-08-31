@@ -92,7 +92,6 @@ function printQuote() {
   let citation = quotes[randomQuote].citation;
   let year = quotes[randomQuote].year;
 
-  // view quote in the html file provided
   html += '<p class = "quote">' + quote + '</p>';
 
   // view quote, source, and year if citation is not available
@@ -100,7 +99,7 @@ function printQuote() {
     html += '<p class=source>' + source + '<span class="year">' + year + '</p>';
   };
 
-  // view quote, source, and citation is year is not available
+  // view quote, source, and citation if year is not available
   if (year === ''){
     html += '<p class=source>' + source + '<span class="citation">' + citation + '</p>';
   };
