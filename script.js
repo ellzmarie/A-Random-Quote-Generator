@@ -108,7 +108,7 @@ function printQuote() {
     ';
   }
   
-  // required to add
+  // required as per project instructions
   html += '</p>';
   return document.getElementById('quote-box').innerHTML = html;
 
