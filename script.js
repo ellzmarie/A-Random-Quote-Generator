@@ -88,7 +88,7 @@ function printQuote() {
 
   let html = '
     <p class="quote"> ${randomQuote.quote} </p>
-    <p class="source"> ${randomQuote.source} </p>
+    <p class="source"> ${randomQuote.source}
   ';
 
   if (randomQuote.citation) {
@@ -102,14 +102,11 @@ function printQuote() {
     <span class="year">${randomQuote.year}</span>
     ';
   }
+  
+  html += '</p>';
+  return document.getElementById('quote-box').innerHTML = html;
 
-  //execute
-  return html;
-}
-
-console.log(printQuote()); //executes function and displays objects 
-
-document.getElementById('quote-box').innerHTML = myQuoteString;
+};
 
 
 /***
