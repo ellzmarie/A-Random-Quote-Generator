@@ -84,34 +84,32 @@ function getRandomQuote() {
  * This function should display a new quote each time the user clicks the button 
 ***/
 function printQuote() {
-  const randomQuote = getRandomQuote();
+  let randomQuote = getRandomQuote();
 
-  let html = '';
-  let quote = quotes[randomQuote].quote;
-  let source = quotes[randomQuote].source;
-  let citation = quotes[randomQuote].citation;
-  let year = quotes[randomQuote].year;
+  let html = '
+    <p class="quote"> ${randomQuote.quote} </p>
+    <p class="source"> ${randomQuote.source} </p>
+  ';
 
-  html += '<p class = "quote">' + quote + '</p>';
+  if (randomQuote.citation) {
+    html += '
+    <span class="citation">${randomQuote.citation}</span>
+    ';
+  }
 
-  // view quote, source, and year if citation is not available
-  if (citation === '') {
-    html += '<p class=source>' + source + '<span class="year">' + year + '</p>';
-  };
-
-  // view quote, source, and citation if year is not available
-  if (year === ''){
-    html += '<p class=source>' + source + '<span class="citation">' + citation + '</p>';
-  };
-
-  // view quote, source, citation and year when everything is available
-  html += '<p class=source>' + source + '<span class="citation">' + citation + '<span class="year">' + year + '</p>';
+  if (randomQuote.year){
+    html += '
+    <span class="year">${randomQuote.year}</span>
+    ';
+  }
 
   //execute
   return html;
 }
 
 console.log(printQuote()); //executes function and displays objects 
+
+document.getElementById('quote-box').innerHTML = myQuoteString;
 
 
 /***
