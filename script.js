@@ -71,9 +71,11 @@ var quotes = [
 /***
  * `getRandomQuote` function
  * This function should return a quote from the array.
+ * Refer back to the Random Number Challenge module
 ***/
 
 function getRandomQuote() {
+  // Use Math.random() to generate quote
   const randomNumber = Math.floor(Math.random() * (quotes.length));
   return quotes[randomNumber];
 }
@@ -86,23 +88,27 @@ function getRandomQuote() {
 function printQuote() {
   let randomQuote = getRandomQuote();
 
+  // Display the random quote
   let html = '
     <p class="quote"> ${randomQuote.quote} </p>
     <p class="source"> ${randomQuote.source}
   ';
 
+  // if citation avaiable, display citation
   if (randomQuote.citation) {
     html += '
     <span class="citation">${randomQuote.citation}</span>
     ';
   }
 
+  // if year available, display year
   if (randomQuote.year){
     html += '
     <span class="year">${randomQuote.year}</span>
     ';
   }
   
+  // required to add
   html += '</p>';
   return document.getElementById('quote-box').innerHTML = html;
 
